@@ -36,6 +36,12 @@ yarn-error.log*
 # vercel
 .vercel
 
+# local agent and QA artifacts
+.agents/
+.playwright-mcp/
+kayson-*.png
+skills-lock.json
+
 # typescript
 *.tsbuildinfo
 next-env.d.ts
