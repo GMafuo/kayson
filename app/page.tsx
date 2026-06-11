@@ -1,53 +1,24 @@
 import { ArrowButton } from "@/components/arrow-button";
-import { BrandLogo } from "@/components/brand-logo";
 import { CylinderArt } from "@/components/cylinder-art";
 import { HeroDevice } from "@/components/hero-device";
 import { Icon } from "@/components/icons";
 import { ImagePanel } from "@/components/image-panel";
 import {
   ArtworkHover,
-  HeaderReveal,
   Reveal,
   StaggerContainer,
   StaggerItem,
 } from "@/components/motion-primitives";
 import { SectionHeading } from "@/components/section-heading";
+import { SiteNavigation } from "@/components/site-navigation";
 import {
   benefits,
   featureList,
   images,
-  navItems,
   steps,
   tableColumns,
   trustedLogos,
 } from "@/data/site";
-
-function Navigation() {
-  return (
-    <HeaderReveal className="relative z-10 mx-auto flex h-[78px] w-full max-w-[1280px] items-center justify-between px-4 md:h-[148px] md:px-10">
-      <BrandLogo className="text-[15px] text-[#111]" />
-      <nav aria-label="Primary" className="hidden md:block">
-        <ul className="flex h-[60px] items-center gap-[27px] rounded-full px-6 text-[12px] font-semibold text-[#111]">
-          {navItems.map((item) => (
-            <li key={item}>
-              <a href={`#${item.toLowerCase().replaceAll(" ", "-")}`}>{item}</a>
-            </li>
-          ))}
-        </ul>
-      </nav>
-      <div className="hidden md:block">
-        <ArrowButton className="h-10 px-5" />
-      </div>
-      <button
-        className="flex h-8 w-8 items-center justify-center rounded-sm border border-[#e8e8e3] text-[#111] md:hidden"
-        type="button"
-        aria-label="Open navigation"
-      >
-        <span className="h-[2px] w-3 bg-current shadow-[0_5px_0_currentColor]" />
-      </button>
-    </HeaderReveal>
-  );
-}
 
 function TrustedBy() {
   return (
@@ -250,7 +221,7 @@ function Footer() {
     <footer className="site-container border-t border-[#e8e8e1] pb-5 pt-10">
       <Reveal y={20}>
         <div className="flex flex-col gap-12 md:h-10 md:flex-row md:items-center md:gap-7">
-          {navItems.slice(0, 3).map((item) => (
+          {["Benefits", "Specifications", "How-to"].map((item) => (
             <a className="text-[12px] font-semibold text-[#111]" href="#" key={item}>
               {item}
             </a>
@@ -272,7 +243,7 @@ function Footer() {
 export default function Home() {
   return (
     <main className="min-h-screen bg-[#fffefa] text-[#111]">
-      <Navigation />
+      <SiteNavigation />
       <section className="site-container pb-[15px] pt-[42px] md:pb-[165px] md:pt-0">
         <Reveal y={28} delay={0.08}>
           <h1 className="mx-auto max-w-[1200px] text-center font-serif text-[58px] leading-[0.99] tracking-normal text-[#050505] md:text-[104px] lg:text-[112px]">
