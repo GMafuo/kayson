@@ -94,7 +94,7 @@ function AboutSection() {
   return (
     <section
       id="artiste"
-      className="site-container grid gap-5 border-t border-[var(--divider)] pb-[80px] pt-[60px] md:h-[727px] md:grid-cols-[626px_minmax(0,1fr)] md:pb-[120px]"
+      className="site-container grid gap-5 border-t border-[var(--divider)] pb-[80px] pt-[60px] md:grid-cols-[626px_minmax(0,1fr)] md:pb-[120px]"
     >
       <Reveal className="flex flex-col items-start md:h-full md:pb-20">
         <div className="max-w-[552px] md:pr-20">
