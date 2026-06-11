@@ -35,16 +35,66 @@ const universeItems = [
 ];
 
 const releases = [
-  { image: "/kayson-figma/cover-01.jpg", title: "Bébé n'est plus la", meta: "Single • 2026" },
-  { image: "/kayson-figma/cover-02.jpg", title: "Prémices", meta: "EP • 2026" },
-  { image: "/kayson-figma/cover-03.jpg", title: "Nova", meta: "EP • 2025" },
-  { image: "/kayson-figma/cover-04.jpg", title: "Larmes", meta: "EP • 2025" },
-  { image: "/kayson-figma/cover-05.jpg", title: "Roméo", meta: "Single • 2025" },
-  { image: "/kayson-figma/cover-06.jpg", title: "Perdre la raison", meta: "Single • 2025" },
-  { image: "/kayson-figma/cover-07.jpg", title: "Que Du Love", meta: "EP • 2024" },
-  { image: "/kayson-figma/cover-08.jpg", title: "Solo", meta: "Single • 2024" },
-  { image: "/kayson-figma/cover-09.jpg", title: "J'avoue", meta: "Single • 2024" },
-  { image: "/kayson-figma/cover-10.jpg", title: "C'est toi", meta: "Single • 2024" },
+  {
+    image: "/kayson-figma/cover-01.jpg",
+    title: "Bébé n'est plus la",
+    meta: "Single • 2026",
+    href: "https://open.spotify.com/album/4JOSOSHeTQp7ATJexOQjqN",
+  },
+  {
+    image: "/kayson-figma/cover-02.jpg",
+    title: "Prémices",
+    meta: "EP • 2026",
+    href: "https://open.spotify.com/album/6hwS0ctMsYZq5qQBCQdurq",
+  },
+  {
+    image: "/kayson-figma/cover-03.jpg",
+    title: "Nova",
+    meta: "EP • 2025",
+    href: "https://open.spotify.com/album/7qJifpjjhoJP0MQHLv2Xig",
+  },
+  {
+    image: "/kayson-figma/cover-04.jpg",
+    title: "Larmes",
+    meta: "EP • 2025",
+    href: "https://open.spotify.com/album/1BaRsxauV9Er0NxqZuaNHl",
+  },
+  {
+    image: "/kayson-figma/cover-05.jpg",
+    title: "Roméo",
+    meta: "Single • 2025",
+    href: "https://open.spotify.com/track/2Vhh2lvAF58n4fEyDAO2SJ",
+  },
+  {
+    image: "/kayson-figma/cover-06.jpg",
+    title: "Perdre la raison",
+    meta: "Single • 2025",
+    href: "https://open.spotify.com/track/4WxlIblWsCcsj62LJhk61X",
+  },
+  {
+    image: "/kayson-figma/cover-07.jpg",
+    title: "Que Du Love",
+    meta: "EP • 2024",
+    href: "https://open.spotify.com/album/2eHM9T9rqHFySLVxXsX0MW",
+  },
+  {
+    image: "/kayson-figma/cover-08.jpg",
+    title: "Solo",
+    meta: "Single • 2024",
+    href: "https://open.spotify.com/track/28MjhAwmQVluwRu4DyMqdC",
+  },
+  {
+    image: "/kayson-figma/cover-09.jpg",
+    title: "J'avoue",
+    meta: "Single • 2024",
+    href: "https://open.spotify.com/track/3hwZd2WwGIz282FQNTTH7R",
+  },
+  {
+    image: "/kayson-figma/cover-10.jpg",
+    title: "C'est toi",
+    meta: "Single • 2024",
+    href: "https://open.spotify.com/track/2IAI1251PvCRoilVJrjfUQ",
+  },
 ];
 
 function ListenButton({
@@ -218,21 +268,29 @@ function DiscographySection() {
       <StaggerContainer className="mt-[34px] grid grid-cols-2 gap-x-5 gap-y-8 md:grid-cols-5 md:gap-x-[43px] md:gap-y-[62px]">
         {releases.map((release) => (
           <StaggerItem key={release.title}>
-            <ArtworkHover className="group relative aspect-square overflow-hidden rounded-[18px] md:rounded-[30px]">
-              <Image
-                className="object-cover transition-[filter,transform] duration-[1100ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.025] group-hover:brightness-[1.05]"
-                src={release.image}
-                alt={`Pochette ${release.title}`}
-                fill
-                sizes="(min-width: 768px) 205px, 50vw"
-              />
-            </ArtworkHover>
-            <h3 className="mt-4 font-serif text-[25px] leading-[0.9] tracking-[-0.75px] text-black md:text-[32px] md:tracking-[-0.96px]">
-              {release.title}
-            </h3>
-            <p className="font-serif text-[19px] leading-[0.9] tracking-[-0.57px] text-black md:text-[24px] md:tracking-[-0.96px]">
-              {release.meta}
-            </p>
+            <a
+              aria-label={`Écouter ${release.title} sur Spotify`}
+              className="block text-black focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-black"
+              href={release.href}
+              target="_blank"
+              rel="noreferrer"
+            >
+              <ArtworkHover className="group relative aspect-square overflow-hidden rounded-[18px] md:rounded-[30px]">
+                <Image
+                  className="object-cover transition-[filter,transform] duration-[1100ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.025] group-hover:brightness-[1.05]"
+                  src={release.image}
+                  alt={`Pochette ${release.title}`}
+                  fill
+                  sizes="(min-width: 768px) 205px, 50vw"
+                />
+              </ArtworkHover>
+              <h3 className="mt-4 font-serif text-[25px] leading-[0.9] tracking-[-0.75px] text-black md:text-[32px] md:tracking-[-0.96px]">
+                {release.title}
+              </h3>
+              <p className="font-serif text-[19px] leading-[0.9] tracking-[-0.57px] text-black md:text-[24px] md:tracking-[-0.96px]">
+                {release.meta}
+              </p>
+            </a>
           </StaggerItem>
         ))}
       </StaggerContainer>
