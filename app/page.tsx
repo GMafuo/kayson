@@ -5,6 +5,7 @@ import {
   StaggerContainer,
   StaggerItem,
 } from "@/components/motion-primitives";
+import { GsapSiteAnimations } from "@/components/gsap-site-animations";
 import { SiteNavigation } from "@/components/site-navigation";
 
 const listeningUrl =
@@ -77,7 +78,7 @@ function ImageBlock({
   className: string;
 }) {
   return (
-    <ArtworkHover className={`group relative overflow-hidden rounded-[30px] ${className}`}>
+    <ArtworkHover className={`gsap-image-reveal group relative overflow-hidden rounded-[30px] ${className}`}>
       <Image
         className="object-cover transition-[filter,transform] duration-[1200ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.018] group-hover:brightness-[1.04] group-hover:contrast-[1.03]"
         src={src}
@@ -286,11 +287,12 @@ function Footer() {
 
 export default function Home() {
   return (
-    <main id="top" className="min-h-screen bg-white text-black">
+    <main id="top" className="min-h-screen bg-white text-black" data-gsap-root>
+      <GsapSiteAnimations />
       <SiteNavigation />
       <section className="site-container pb-[48px] md:pb-[105px]">
         <Reveal y={24}>
-          <h1 className="text-center font-serif text-[82px] leading-[0.9] tracking-[-3.4px] text-black sm:text-[118px] md:text-[160px] md:tracking-[-6.8px]">
+          <h1 className="gsap-hero-title text-center font-serif text-[82px] leading-[0.9] tracking-[-3.4px] text-black sm:text-[118px] md:text-[160px] md:tracking-[-6.8px]">
             KAYSON
           </h1>
         </Reveal>
@@ -298,7 +300,7 @@ export default function Home() {
           <ImageBlock
             src="/kayson-figma/hero-image.jpg"
             alt="Kayson dans un paysage brumeux"
-            className="h-[420px] md:h-[620px]"
+            className="gsap-hero-image h-[420px] md:h-[620px]"
           />
         </Reveal>
       </section>

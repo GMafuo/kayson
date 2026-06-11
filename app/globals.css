@@ -59,3 +59,50 @@ a {
   width: 100%;
   object-fit: cover;
 }
+
+.gsap-reveal,
+.gsap-stagger-item,
+.gsap-header,
+.gsap-hero-title,
+.gsap-hero-image,
+.gsap-image-reveal {
+  will-change: transform, opacity;
+}
+
+.gsap-image-reveal {
+  clip-path: inset(0% 0% 0% 0% round 30px);
+}
+
+.artwork-hover {
+  transition:
+    transform 900ms cubic-bezier(0.22, 1, 0.36, 1),
+    filter 900ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+@media (hover: hover) {
+  .artwork-hover:hover {
+    transform: translateY(-3px) scale(1.006);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .gsap-reveal,
+  .gsap-stagger-item,
+  .gsap-header,
+  .gsap-hero-title,
+  .gsap-hero-image,
+  .gsap-image-reveal {
+    transform: none !important;
+    opacity: 1 !important;
+    filter: none !important;
+    will-change: auto;
+  }
+
+  .artwork-hover {
+    transition: none;
+  }
+}
