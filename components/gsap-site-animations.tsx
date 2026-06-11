@@ -91,7 +91,7 @@ export function GsapSiteAnimations() {
             image,
             {
               autoAlpha: 0,
-              y: 34,
+              y: 12,
               scale: 0.99,
               clipPath: "inset(9% 0% 9% 0% round 30px)",
             },

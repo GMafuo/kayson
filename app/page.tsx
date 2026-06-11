@@ -94,7 +94,7 @@ function AboutSection() {
   return (
     <section
       id="artiste"
-      className="site-container grid gap-5 border-t border-[var(--divider)] pb-[80px] pt-[60px] md:grid-cols-[626px_minmax(0,1fr)] md:pb-[120px]"
+      className="site-container grid gap-5 border-t border-[var(--divider)] pb-[80px] pt-[60px] md:grid-cols-[626px_minmax(0,1fr)] md:pb-4"
     >
       <Reveal className="flex flex-col items-start md:h-full md:pb-20">
         <div className="max-w-[552px] md:pr-20">
@@ -125,13 +125,11 @@ function AboutSection() {
         </div>
       </Reveal>
 
-      <Reveal delay={0.1} y={36}>
-        <ImageBlock
-          src="/kayson-figma/about-image.jpg"
-          alt="Portrait de Kayson"
-          className="h-[460px] md:h-[711px]"
-        />
-      </Reveal>
+      <ImageBlock
+        src="/kayson-figma/about-image.jpg"
+        alt="Portrait de Kayson"
+        className="h-[460px] md:h-[711px]"
+      />
     </section>
   );
 }
@@ -173,13 +171,13 @@ function UniverseSection() {
         ))}
       </StaggerContainer>
 
-      <Reveal className="mt-10 md:mt-20" y={36}>
+      <div className="mt-10 md:mt-20">
         <ImageBlock
           src="/kayson-figma/universe-hero.jpg"
           alt="Kayson en studio, éclairage rouge et bleu"
           className="h-[440px] md:h-[620px]"
         />
-      </Reveal>
+      </div>
     </section>
   );
 }
@@ -187,13 +185,11 @@ function UniverseSection() {
 function QuoteSection() {
   return (
     <section className="site-container grid gap-10 pb-[80px] md:grid-cols-2 md:gap-5 md:pb-[120px]">
-      <Reveal>
-        <ImageBlock
-          src="/kayson-figma/quote-image.jpg"
-          alt="Kayson de profil en extérieur"
-          className="aspect-[550/624]"
-        />
-      </Reveal>
+      <ImageBlock
+        src="/kayson-figma/quote-image.jpg"
+        alt="Kayson de profil en extérieur"
+        className="aspect-[550/624]"
+      />
       <Reveal className="flex border-t border-[var(--divider)] md:pl-[50px]" delay={0.1}>
         <blockquote className="flex min-h-[360px] flex-col justify-center gap-[50px] md:min-h-full">
           <p className="font-serif text-[34px] leading-none tracking-[-1.36px] text-black md:text-[40px] md:tracking-[-1.6px]">
@@ -296,13 +292,13 @@ export default function Home() {
             KAYSON
           </h1>
         </Reveal>
-        <Reveal className="mt-[60px]" delay={0.12} y={36}>
+        <div className="mt-[60px]">
           <ImageBlock
             src="/kayson-figma/hero-image.jpg"
             alt="Kayson dans un paysage brumeux"
             className="gsap-hero-image h-[420px] md:h-[620px]"
           />
-        </Reveal>
+        </div>
       </section>
       <AboutSection />
       <UniverseSection />
