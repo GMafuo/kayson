@@ -80,7 +80,7 @@ function ImageBlock({
   return (
     <ArtworkHover className={`gsap-image-reveal group relative overflow-hidden rounded-[30px] ${className}`}>
       <Image
-        className="object-cover transition-[filter,transform] duration-[1200ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.018] group-hover:brightness-[1.04] group-hover:contrast-[1.03]"
+        className="kayson-large-image object-cover"
         src={src}
         alt={alt}
         fill
