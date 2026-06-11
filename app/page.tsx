@@ -14,13 +14,13 @@ const listeningUrl =
 const universeItems = [
   {
     icon: "/kayson-figma/icon-01.svg",
-    title: "Artiste indépendant",
+    title: "Kayson",
     text: "Kayson écrit, compose, produit, enregistre et mixe l'ensemble de ses morceaux depuis son home studio.",
   },
   {
     icon: "/kayson-figma/icon-02.svg",
     title: "Entre Pop et R&B",
-    text: "Manage and track satellite offices, ensuring consistent performance and streamlined operations everywhere.",
+    text: "Son univers musical mêle mélodies modernes, émotions sincères et influences R&B contemporaines.",
   },
   {
     icon: "/kayson-figma/icon-03.svg",
@@ -160,7 +160,7 @@ function AboutSection() {
             <p>
               Entre pop moderne et influences R&B, sa musique raconte les relations, les
               sentiments et les moments qui marquent une vie. Des mélodies sincères, des
-              productions actuelles et une identité artistique entièrement façonnée par
+              productions actuelles et une identité artistique entièrement façonnées par
               l&apos;artiste lui-même.
             </p>
             <p>
@@ -171,7 +171,7 @@ function AboutSection() {
           </div>
         </div>
         <div className="mt-10 md:mt-auto">
-          <ListenButton>ÉCOUTES ICI</ListenButton>
+          <ListenButton>ÉCOUTE ICI</ListenButton>
         </div>
       </Reveal>
 
@@ -186,13 +186,13 @@ function AboutSection() {
 
 function UniverseSection() {
   return (
-    <section id="univer" className="site-container pb-[80px] md:pb-[120px]">
+    <section id="univers" className="site-container pb-[80px] md:pb-[120px]">
       <Reveal className="border-t border-[var(--divider)] pb-[40px] pt-[17px] md:pb-[86px]">
         <p className="font-mono text-[12px] leading-[1.4] tracking-[-0.12px] text-[var(--caption)]">
           Benefits
         </p>
         <h2 className="mt-[50px] font-serif text-[46px] leading-[0.9] tracking-[-1.38px] text-black md:text-[60px] md:tracking-[-1.8px]">
-          SON UNIVER
+          SON UNIVERS
         </h2>
       </Reveal>
 
@@ -262,7 +262,7 @@ function DiscographySection() {
         <h2 className="font-serif text-[46px] leading-[0.9] tracking-[-1.38px] text-black md:text-[60px] md:tracking-[-1.8px]">
           DISCOGRAPHIE :
         </h2>
-        <ListenButton>Écoutes ici</ListenButton>
+        <ListenButton>Écoute ici</ListenButton>
       </Reveal>
 
       <StaggerContainer className="mt-[34px] grid grid-cols-2 gap-x-5 gap-y-8 md:grid-cols-5 md:gap-x-[43px] md:gap-y-[62px]">

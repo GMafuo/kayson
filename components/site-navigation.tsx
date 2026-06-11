@@ -9,7 +9,7 @@ import { navItems } from "@/data/site";
 function itemHref(item: string) {
   const ids: Record<string, string> = {
     "L'artiste": "artiste",
-    Univer: "univer",
+    Univers: "univers",
     Discographie: "discographie",
     Contact: "contact",
   };
@@ -35,7 +35,7 @@ export function SiteNavigation() {
   return (
     <HeaderReveal className="site-container relative z-30 flex h-[86px] items-start justify-between pt-5 md:h-[148px] md:pb-20">
       <a className="text-[24px] font-medium leading-[1.2] tracking-[-1.2px] text-black md:text-[30px] md:tracking-[-1.5px]" href="#top">
-        Artiste
+        Kayson
       </a>
 
       <nav
@@ -56,7 +56,7 @@ export function SiteNavigation() {
         target="_blank"
         rel="noreferrer"
       >
-        Écoutes kayson ici
+        Écoute kayson ici
         <Image
           aria-hidden="true"
           className="h-[7px] w-[7px] invert"
@@ -116,7 +116,7 @@ export function SiteNavigation() {
             target="_blank"
             rel="noreferrer"
           >
-            Écoutes kayson ici
+            Écoute kayson ici
             <Image
               aria-hidden="true"
               className="h-[7px] w-[7px] invert"
