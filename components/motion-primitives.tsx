@@ -1,9 +1,6 @@
 "use client";
 
 import type { ReactNode } from "react";
-import { motion, useReducedMotion } from "motion/react";
-
-const premiumEase = [0.22, 1, 0.36, 1] as const;
 
 type MotionPrimitiveProps = {
   children: ReactNode;
@@ -23,44 +20,22 @@ export function Reveal({
   y = 32,
   amount = 0.2,
 }: RevealProps) {
-  const reducedMotion = useReducedMotion();
-
-  if (reducedMotion) {
-    return <div className={className}>{children}</div>;
-  }
-
   return (
-    <motion.div
-      className={className}
-      initial={{ opacity: 0, y }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true, amount }}
-      transition={{ duration: 0.9, ease: premiumEase, delay }}
+    <div
+      className={`gsap-reveal ${className}`}
+      data-gsap-delay={delay}
+      data-gsap-y={y}
+      data-gsap-amount={amount}
     >
       {children}
-    </motion.div>
+    </div>
   );
 }
 
 type HeaderRevealProps = MotionPrimitiveProps;
 
 export function HeaderReveal({ children, className = "" }: HeaderRevealProps) {
-  const reducedMotion = useReducedMotion();
-
-  if (reducedMotion) {
-    return <header className={className}>{children}</header>;
-  }
-
-  return (
-    <motion.header
-      className={className}
-      initial={{ opacity: 0, y: -14 }}
-      animate={{ opacity: 1, y: 0 }}
-      transition={{ duration: 0.8, ease: premiumEase }}
-    >
-      {children}
-    </motion.header>
-  );
+  return <header className={`gsap-header ${className}`}>{children}</header>;
 }
 
 type StaggerContainerProps = MotionPrimitiveProps & {
@@ -78,33 +53,17 @@ export function StaggerContainer({
   delayChildren = 0.06,
   staggerChildren = 0.1,
 }: StaggerContainerProps) {
-  const reducedMotion = useReducedMotion();
-  const StaticTag = as;
-  const MotionTag =
-    as === "ol" ? motion.ol : as === "ul" ? motion.ul : motion.div;
-
-  if (reducedMotion) {
-    return <StaticTag className={className}>{children}</StaticTag>;
-  }
+  const Tag = as;
 
   return (
-    <MotionTag
-      className={className}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{ once: true, amount }}
-      variants={{
-        hidden: {},
-        visible: {
-          transition: {
-            delayChildren,
-            staggerChildren,
-          },
-        },
-      }}
+    <Tag
+      className={`gsap-stagger ${className}`}
+      data-gsap-amount={amount}
+      data-gsap-delay-children={delayChildren}
+      data-gsap-stagger={staggerChildren}
     >
       {children}
-    </MotionTag>
+    </Tag>
   );
 }
 
@@ -117,49 +76,15 @@ export function StaggerItem({
   children,
   className = "",
 }: StaggerItemProps) {
-  const reducedMotion = useReducedMotion();
-  const StaticTag = as;
-  const MotionTag =
-    as === "li" ? motion.li : as === "article" ? motion.article : motion.div;
-
-  if (reducedMotion) {
-    return <StaticTag className={className}>{children}</StaticTag>;
-  }
+  const Tag = as;
 
   return (
-    <MotionTag
-      className={className}
-      variants={{
-        hidden: { opacity: 0, y: 28 },
-        visible: {
-          opacity: 1,
-          y: 0,
-          transition: {
-            duration: 0.85,
-            ease: premiumEase,
-          },
-        },
-      }}
-    >
+    <Tag className={`gsap-stagger-item ${className}`}>
       {children}
-    </MotionTag>
+    </Tag>
   );
 }
 
 export function ArtworkHover({ children, className = "" }: MotionPrimitiveProps) {
-  const reducedMotion = useReducedMotion();
-
-  if (reducedMotion) {
-    return <div className={className}>{children}</div>;
-  }
-
-  return (
-    <motion.div
-      className={className}
-      whileHover={{ y: -3, scale: 1.006 }}
-      transition={{ duration: 0.9, ease: premiumEase }}
-    >
-      {children}
-    </motion.div>
-  );
+  return <div className={`artwork-hover ${className}`}>{children}</div>;
 }

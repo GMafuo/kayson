@@ -1,285 +1,310 @@
-import { ArrowButton } from "@/components/arrow-button";
-import { CylinderArt } from "@/components/cylinder-art";
-import { HeroDevice } from "@/components/hero-device";
-import { Icon } from "@/components/icons";
-import { ImagePanel } from "@/components/image-panel";
+import Image from "next/image";
 import {
   ArtworkHover,
   Reveal,
   StaggerContainer,
   StaggerItem,
 } from "@/components/motion-primitives";
-import { SectionHeading } from "@/components/section-heading";
+import { GsapSiteAnimations } from "@/components/gsap-site-animations";
 import { SiteNavigation } from "@/components/site-navigation";
-import {
-  benefits,
-  featureList,
-  images,
-  steps,
-  tableColumns,
-  trustedLogos,
-} from "@/data/site";
 
-function TrustedBy() {
+const listeningUrl =
+  "https://open.spotify.com/intl-fr/artist/592Fx192BSIFGTS9ldHXoI?si=sSMbXlYDQ92kZhmZAMjHHw";
+
+const universeItems = [
+  {
+    icon: "/kayson-figma/icon-01.svg",
+    title: "Artiste indépendant",
+    text: "Kayson écrit, compose, produit, enregistre et mixe l'ensemble de ses morceaux depuis son home studio.",
+  },
+  {
+    icon: "/kayson-figma/icon-02.svg",
+    title: "Entre Pop et R&B",
+    text: "Manage and track satellite offices, ensuring consistent performance and streamlined operations everywhere.",
+  },
+  {
+    icon: "/kayson-figma/icon-03.svg",
+    title: "Une vision artistique complète",
+    text: "De la musique aux clips vidéo, en passant par les visuels et les contenus digitaux, chaque détail participe à la construction de son identité artistique.",
+  },
+  {
+    icon: "/kayson-figma/icon-04.svg",
+    title: "Une audience en pleine croissance",
+    text: "En seulement quelques années, Kayson a réuni une communauté de plus de 115 000 abonnés sur les réseaux sociaux et cumule plus de 10 millions de streams.",
+  },
+];
+
+const releases = [
+  { image: "/kayson-figma/cover-01.jpg", title: "Bébé n'est plus la", meta: "Single • 2026" },
+  { image: "/kayson-figma/cover-02.jpg", title: "Prémices", meta: "EP • 2026" },
+  { image: "/kayson-figma/cover-03.jpg", title: "Nova", meta: "EP • 2025" },
+  { image: "/kayson-figma/cover-04.jpg", title: "Larmes", meta: "EP • 2025" },
+  { image: "/kayson-figma/cover-05.jpg", title: "Roméo", meta: "Single • 2025" },
+  { image: "/kayson-figma/cover-06.jpg", title: "Perdre la raison", meta: "Single • 2025" },
+  { image: "/kayson-figma/cover-07.jpg", title: "Que Du Love", meta: "EP • 2024" },
+  { image: "/kayson-figma/cover-08.jpg", title: "Solo", meta: "Single • 2024" },
+  { image: "/kayson-figma/cover-09.jpg", title: "J'avoue", meta: "Single • 2024" },
+  { image: "/kayson-figma/cover-10.jpg", title: "C'est toi", meta: "Single • 2024" },
+];
+
+function ListenButton({
+  children,
+  variant = "dark",
+}: {
+  children: string;
+  variant?: "dark" | "soft";
+}) {
   return (
-    <section className="site-container border-b border-[#e8e8e1] pb-[50px] pt-[50px] md:pb-[50px]">
-      <Reveal y={24}>
-        <p className="text-[12px] leading-[1.4] text-[#8b8b86]">Trusted by:</p>
-      </Reveal>
-      <StaggerContainer className="mt-[30px] grid grid-cols-2 gap-x-10 gap-y-5 md:mt-[30px] md:grid-cols-6 md:gap-0">
-        {trustedLogos.map((logo, index) => (
-          <StaggerItem
-            className="flex h-[82px] items-center justify-center text-[#999] grayscale"
-            key={`${logo}-${index}`}
-          >
-            <span
-              className={`text-[13px] font-semibold ${index % 3 === 0 ? "font-serif text-[20px]" : ""}`}
-            >
-              {logo}
-            </span>
-          </StaggerItem>
-        ))}
-      </StaggerContainer>
-    </section>
+    <a
+      className={`inline-flex items-center justify-center rounded-full px-[22px] py-[14px] text-center text-[14px] font-bold leading-[1.4] tracking-[-0.35px] ${
+        variant === "dark" ? "bg-black text-white" : "bg-[var(--accent-soft)] text-black"
+      }`}
+      href={listeningUrl}
+      target="_blank"
+      rel="noreferrer"
+    >
+      {children}
+    </a>
   );
 }
 
-function BenefitsSection() {
+function ImageBlock({
+  src,
+  alt,
+  className,
+}: {
+  src: string;
+  alt: string;
+  className: string;
+}) {
   return (
-    <section id="benefits" className="site-container py-20 md:pb-[169px] md:pt-[80px]">
-      <Reveal>
-        <SectionHeading
-          eyebrow="Benefits"
-          title="We've cracked the code."
-          text="Area provides real insights, without the data overload."
-        />
-      </Reveal>
-      <StaggerContainer className="mt-[50px] grid gap-y-5 divide-y divide-[#ecece7] md:mt-[50px] md:grid-cols-4 md:gap-x-5 md:divide-y-0">
-        {benefits.map((benefit) => (
-          <StaggerItem as="article" className="min-h-[229px] pt-10 md:border-t md:border-[#ecece7]" key={benefit.title}>
-            <Icon name={benefit.icon as "cable"} className="text-[#111]" />
-            <h3 className="mt-6 text-[14px] font-semibold leading-[1.3] text-[#111]">
-              {benefit.title}
-            </h3>
-            <p className="mt-5 max-w-[330px] text-[13px] leading-[1.55] text-[#767672]">
-              {benefit.text}
-            </p>
-          </StaggerItem>
-        ))}
-      </StaggerContainer>
-      <ArtworkHover className="group mt-20 h-[600px] overflow-hidden rounded-[18px] md:h-[620px]">
-        <ImagePanel
-          src={images.mountains}
-          className="h-full w-full transition-[filter,transform] duration-[1200ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.025] group-hover:brightness-[1.05] group-hover:contrast-[1.04]"
-        />
-      </ArtworkHover>
-    </section>
+    <ArtworkHover className={`gsap-image-reveal group relative overflow-hidden rounded-[30px] ${className}`}>
+      <Image
+        className="kayson-large-image object-cover"
+        src={src}
+        alt={alt}
+        fill
+        sizes="(min-width: 768px) 50vw, 100vw"
+      />
+    </ArtworkHover>
   );
 }
 
-function FeaturesSection() {
+function AboutSection() {
   return (
-    <section className="site-container grid border-t border-[#e8e8e1] py-[60px] md:grid-cols-2 md:gap-5 md:pb-[120px] md:pt-0">
-      <div className="pb-[70px] md:h-[711px] md:pb-0 md:pt-[60px]">
-        <Reveal>
-          <div className="max-w-[510px]">
-            <h2 className="font-serif text-[46px] leading-[0.98] text-[#111] md:text-[58px]">
-              See the Big Picture
-            </h2>
-            <p className="mt-10 text-[15px] leading-[1.55] text-[#777]">
-              Area turns your data into clear, vibrant visuals that show you exactly what&apos;s
-              happening in each region.
-            </p>
-          </div>
-        </Reveal>
-        <StaggerContainer as="ol" className="mt-10 max-w-[590px] border-t border-[#e8e8e1]">
-          {featureList.map((item, index) => (
-            <StaggerItem
-              as="li"
-              className="grid min-h-[82px] grid-cols-[30px_1fr] gap-5 border-b border-[#e8e8e1] py-5 text-[15px] leading-[1.45] text-[#4f4f4b] md:grid-cols-[26px_1fr] md:gap-7"
-              key={item}
-            >
-              <span className="text-[#8a8a85]">{String(index + 1).padStart(2, "0")}</span>
-              <span>{item}</span>
-            </StaggerItem>
-          ))}
-        </StaggerContainer>
-        <Reveal y={18} delay={0.1}>
-          <ArrowButton variant="light" className="mt-10" href="#specifications">
-            Discover More
-          </ArrowButton>
-        </Reveal>
-      </div>
-      <ArtworkHover className="group">
-        <CylinderArt />
-      </ArtworkHover>
-    </section>
-  );
-}
-
-function SpecsTable() {
-  return (
-    <section id="specifications" className="site-container border-t border-[#e8e8e1] py-20 md:pb-[203px] md:pt-[80px]">
-      <Reveal>
-        <SectionHeading
-          centered
-          eyebrow="Specs"
-          title="Why Choose Area?"
-          text="You need a solution that keeps up. That&apos;s why we developed Area. A developer-friendly approach to streamline your business."
-        />
-      </Reveal>
-      <div className="mt-20 overflow-x-auto pb-2">
-        <StaggerContainer className="grid min-w-[600px] grid-cols-3">
-          {tableColumns.map((column, columnIndex) => (
-            <StaggerItem
-              className={`border-y border-[#e4e4de] ${columnIndex === 0 ? "rounded-l-[10px] border-l" : ""} ${
-                columnIndex === tableColumns.length - 1 ? "rounded-r-[10px] border-r" : ""
-              }`}
-              key={column.title}
-            >
-              <div className="flex h-24 items-center justify-center border-b border-[#e4e4de] font-serif text-[28px] leading-none text-[#242420]">
-                {column.title}
-              </div>
-              {column.values.map((value, rowIndex) => (
-                <div
-                  className="flex h-[79px] items-center gap-2 border-b border-[#ecece7] px-6 text-[13px] text-[#4d4d48] last:border-b-0 md:h-[81px] md:px-9"
-                  key={`${column.title}-${value}-${rowIndex}`}
-                >
-                  <Icon
-                    name={columnIndex === 2 && rowIndex % 2 === 1 ? "x" : "check"}
-                    className={columnIndex === 2 && rowIndex % 2 === 1 ? "text-[#a1a19a]" : "text-[#6d8b35]"}
-                  />
-                  {value}
-                </div>
-              ))}
-            </StaggerItem>
-          ))}
-        </StaggerContainer>
-      </div>
-    </section>
-  );
-}
-
-function Testimonial() {
-  return (
-    <section className="site-container grid gap-10 border-t border-[#e8e8e1] py-[80px] md:grid-cols-2 md:gap-5">
-      <ArtworkHover className="group h-[343px] overflow-hidden rounded-[18px] md:h-[669px]">
-        <ImagePanel
-          src={images.sculpture}
-          className="h-full w-full transition-[filter,transform] duration-[1200ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.025] group-hover:brightness-[1.04] group-hover:contrast-[1.04]"
-        />
-      </ArtworkHover>
-      <Reveal>
-        <div className="flex min-h-[426px] flex-col justify-center bg-[#fbfbf7] px-4 md:min-h-[669px] md:px-[50px]">
-          <blockquote className="font-serif text-[34px] leading-[1.05] text-[#171714] md:text-[42px]">
-            &quot;I was skeptical, but Area has completely transformed the way I manage my
-            business. The data visualizations are so clear and intuitive, and the platform is
-            so easy to use. I can&apos;t imagine running my company without it.&quot;
-          </blockquote>
-          <div className="mt-12 flex items-baseline gap-2 md:block">
-            <p className="text-[15px] font-semibold text-[#171714]">John Smith</p>
-            <p className="text-[12px] text-[#6d8b35] md:mt-2">Head of Data</p>
-          </div>
-        </div>
-      </Reveal>
-    </section>
-  );
-}
-
-function HowItWorks() {
-  return (
-    <section id="how-to" className="site-container border-t border-[#e8e8e1] py-20 md:pb-32 md:pt-[80px]">
-      <Reveal>
-        <div className="flex flex-col gap-8 md:flex-row md:items-start md:justify-between">
-          <h2 className="font-serif text-[46px] leading-[1.02] text-[#111] md:text-[58px]">
-            Map Your Success
+    <section
+      id="artiste"
+      className="site-container grid gap-5 border-t border-[var(--divider)] pb-[80px] pt-[60px] md:grid-cols-[626px_minmax(0,1fr)] md:pb-4"
+    >
+      <Reveal className="flex flex-col items-start md:h-full md:pb-20">
+        <div className="max-w-[552px] md:pr-20">
+          <h2 className="font-serif text-[46px] leading-[0.9] tracking-[-1.38px] text-black md:text-[60px] md:tracking-[-1.8px]">
+            Qui est Kayson ?
           </h2>
-          <ArrowButton variant="light" className="self-start md:self-auto">
-            Discover More
-          </ArrowButton>
+          <div className="mt-10 max-w-[461px] space-y-0 text-[16px] leading-[1.4] tracking-[-0.08px] text-[#1a1a1a] md:text-[20px] md:tracking-[-0.1px]">
+            <p>
+              Originaire de Chartres, Kayson est un artiste indépendant qui construit son
+              univers de A à Z. Écriture, composition, production, mixage, réalisation
+              vidéo : chaque création est imaginée et réalisée depuis son home studio.
+            </p>
+            <p>
+              Entre pop moderne et influences R&B, sa musique raconte les relations, les
+              sentiments et les moments qui marquent une vie. Des mélodies sincères, des
+              productions actuelles et une identité artistique entièrement façonnée par
+              l&apos;artiste lui-même.
+            </p>
+            <p>
+              Après plus de 10 millions de streams cumulés et une communauté sur les réseaux
+              sociaux, Kayson poursuit son évolution avec de nouveaux projets et une ambition
+              simple : créer une musique authentique qui parle à ceux qui l&apos;écoutent.
+            </p>
+          </div>
+        </div>
+        <div className="mt-10 md:mt-auto">
+          <ListenButton>ÉCOUTES ICI</ListenButton>
         </div>
       </Reveal>
-      <StaggerContainer className="mt-20 flex gap-5 overflow-x-auto pb-6 md:grid md:grid-cols-3 md:overflow-visible">
-        {steps.map((step) => (
-          <StaggerItem as="article" className="min-w-[240px] border-t border-[#e8e8e1] pt-[60px]" key={step.number}>
-            <p className="text-[64px] font-light leading-none text-[#aaa] md:text-[80px]">
-              {step.number}
-            </p>
-            <h3 className="mt-[60px] text-[14px] font-semibold text-[#111]">{step.title}</h3>
-            <p className="mt-5 max-w-[356px] text-[13px] leading-[1.55] text-[#777]">
-              {step.text}
+
+      <ImageBlock
+        src="/kayson-figma/about-image.jpg"
+        alt="Portrait de Kayson"
+        className="h-[460px] md:h-[711px]"
+      />
+    </section>
+  );
+}
+
+function UniverseSection() {
+  return (
+    <section id="univer" className="site-container pb-[80px] md:pb-[120px]">
+      <Reveal className="border-t border-[var(--divider)] pb-[40px] pt-[17px] md:pb-[86px]">
+        <p className="font-mono text-[12px] leading-[1.4] tracking-[-0.12px] text-[var(--caption)]">
+          Benefits
+        </p>
+        <h2 className="mt-[50px] font-serif text-[46px] leading-[0.9] tracking-[-1.38px] text-black md:text-[60px] md:tracking-[-1.8px]">
+          SON UNIVER
+        </h2>
+      </Reveal>
+
+      <StaggerContainer className="grid gap-5 md:grid-cols-4">
+        {universeItems.map((item) => (
+          <StaggerItem
+            as="article"
+            className="border-t border-[var(--divider)] py-10 pr-5"
+            key={item.title}
+          >
+            <Image
+              className="h-6 w-6"
+              src={item.icon}
+              width={24}
+              height={24}
+              alt=""
+              aria-hidden="true"
+            />
+            <h3 className="mt-6 font-serif text-[24px] leading-none tracking-[-0.72px] text-black">
+              {item.title}
+            </h3>
+            <p className="mt-5 text-[15px] leading-[1.4] tracking-[-0.075px] text-[var(--muted)]">
+              {item.text}
             </p>
           </StaggerItem>
         ))}
       </StaggerContainer>
+
+      <div className="mt-10 md:mt-20">
+        <ImageBlock
+          src="/kayson-figma/universe-hero.jpg"
+          alt="Kayson en studio, éclairage rouge et bleu"
+          className="h-[440px] md:h-[620px]"
+        />
+      </div>
+    </section>
+  );
+}
+
+function QuoteSection() {
+  return (
+    <section className="site-container grid gap-10 pb-[80px] md:grid-cols-2 md:gap-5 md:pb-[120px]">
+      <ImageBlock
+        src="/kayson-figma/quote-image.jpg"
+        alt="Kayson de profil en extérieur"
+        className="aspect-[550/624]"
+      />
+      <Reveal className="flex border-t border-[var(--divider)] md:pl-[50px]" delay={0.1}>
+        <blockquote className="flex min-h-[360px] flex-col justify-center gap-[50px] md:min-h-full">
+          <p className="font-serif text-[34px] leading-none tracking-[-1.36px] text-black md:text-[40px] md:tracking-[-1.6px]">
+            « Je ne cherche pas seulement à faire des chansons. Je veux créer des morceaux
+            dans lesquels chacun peut retrouver une partie de son histoire. »
+          </p>
+          <cite className="not-italic text-[20px] leading-[1.4] tracking-[-0.1px] text-black">
+            Kayson
+          </cite>
+        </blockquote>
+      </Reveal>
+    </section>
+  );
+}
+
+function DiscographySection() {
+  return (
+    <section id="discographie" className="site-container pb-[80px] md:pb-[120px]">
+      <Reveal className="flex flex-col gap-8 border-t border-[var(--divider)] pt-20 md:flex-row md:items-start md:justify-between">
+        <h2 className="font-serif text-[46px] leading-[0.9] tracking-[-1.38px] text-black md:text-[60px] md:tracking-[-1.8px]">
+          DISCOGRAPHIE :
+        </h2>
+        <ListenButton>Écoutes ici</ListenButton>
+      </Reveal>
+
+      <StaggerContainer className="mt-[34px] grid grid-cols-2 gap-x-5 gap-y-8 md:grid-cols-5 md:gap-x-[43px] md:gap-y-[62px]">
+        {releases.map((release) => (
+          <StaggerItem key={release.title}>
+            <ArtworkHover className="group relative aspect-square overflow-hidden rounded-[18px] md:rounded-[30px]">
+              <Image
+                className="object-cover transition-[filter,transform] duration-[1100ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.025] group-hover:brightness-[1.05]"
+                src={release.image}
+                alt={`Pochette ${release.title}`}
+                fill
+                sizes="(min-width: 768px) 205px, 50vw"
+              />
+            </ArtworkHover>
+            <h3 className="mt-4 font-serif text-[25px] leading-[0.9] tracking-[-0.75px] text-black md:text-[32px] md:tracking-[-0.96px]">
+              {release.title}
+            </h3>
+            <p className="font-serif text-[19px] leading-[0.9] tracking-[-0.57px] text-black md:text-[24px] md:tracking-[-0.96px]">
+              {release.meta}
+            </p>
+          </StaggerItem>
+        ))}
+      </StaggerContainer>
+    </section>
+  );
+}
+
+function ContactSection() {
+  return (
+    <section
+      id="contact"
+      className="site-container border-t border-[var(--divider)] px-4 py-[100px] text-center md:px-[300px] md:py-[120px]"
+    >
+      <Reveal>
+        <h2 className="font-serif text-[46px] leading-[0.9] tracking-[-1.38px] text-black md:text-[60px] md:tracking-[-1.8px]">
+          Contact
+        </h2>
+        <div className="mt-10 text-center text-[15px] leading-[1.4] tracking-[-0.075px] text-[var(--muted)]">
+          <p className="text-[16px] tracking-[-0.08px]">Mail :</p>
+          <a href="mailto:Kayson.management@gmail.com">Kayson.management@gmail.com</a>
+        </div>
+        <div className="mt-10 flex items-center justify-center gap-[27px] text-[14px] font-bold tracking-[-0.35px] text-black">
+          <a href="https://www.instagram.com/kayson.csx/" target="_blank" rel="noreferrer">
+            INSTAGRAM
+          </a>
+          <a href="https://www.tiktok.com/@kayson_off" target="_blank" rel="noreferrer">
+            TIKTOK
+          </a>
+          <a href="https://www.youtube.com/@Kayson-" target="_blank" rel="noreferrer">
+            YOUTUBE
+          </a>
+        </div>
+      </Reveal>
     </section>
   );
 }
 
 function Footer() {
   return (
-    <footer className="site-container border-t border-[#e8e8e1] pb-5 pt-10">
-      <Reveal y={20}>
-        <div className="flex flex-col gap-12 md:h-10 md:flex-row md:items-center md:gap-7">
-          {["Benefits", "Specifications", "How-to"].map((item) => (
-            <a className="text-[12px] font-semibold text-[#111]" href="#" key={item}>
-              {item}
-            </a>
-          ))}
-        </div>
-        <div className="mt-20 flex h-[70px] items-end justify-between gap-6 text-[12px] text-[#6d8b35] md:mt-20">
-          <div className="flex items-end gap-10">
-            <span className="text-[44px] leading-none text-[#111]">A</span>
-            <span className="text-[#6d8b35]">© Area.</span>
-            <span>2025</span>
-          </div>
-          <span>All Rights Reserved</span>
-        </div>
-      </Reveal>
+    <footer className="site-container border-t border-[var(--divider)] pb-5 pt-10">
+      <div className="flex items-end justify-between gap-8 font-mono text-[12px] leading-[1.4] tracking-[-0.12px] text-[var(--caption)]">
+        <p>© Kayson.</p>
+        <p>All Rights Reserved</p>
+      </div>
     </footer>
   );
 }
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-[#fffefa] text-[#111]">
+    <main id="top" className="min-h-screen bg-white text-black" data-gsap-root>
+      <GsapSiteAnimations />
       <SiteNavigation />
-      <section className="site-container pb-[15px] pt-[42px] md:pb-[165px] md:pt-0">
-        <Reveal y={28} delay={0.08}>
-          <h1 className="mx-auto max-w-[1200px] text-center font-serif text-[58px] leading-[0.99] tracking-normal text-[#050505] md:text-[104px] lg:text-[112px]">
-            Browse everything.
+      <section className="site-container pb-[48px] md:pb-[105px]">
+        <Reveal y={24}>
+          <h1 className="gsap-hero-title text-center font-serif text-[82px] leading-[0.9] tracking-[-3.4px] text-black sm:text-[118px] md:text-[160px] md:tracking-[-6.8px]">
+            KAYSON
           </h1>
         </Reveal>
-        <Reveal className="mt-[120px] md:mt-[100px]" delay={0.18} y={36}>
-          <HeroDevice />
-        </Reveal>
-      </section>
-      <TrustedBy />
-      <BenefitsSection />
-      <FeaturesSection />
-      <SpecsTable />
-      <Testimonial />
-      <HowItWorks />
-      <section className="site-container py-0">
-        <ArtworkHover className="group h-[600px] overflow-hidden rounded-[18px] md:h-[664px]">
-          <ImagePanel
-            src={images.greenRoad}
-            className="h-full w-full transition-[filter,transform] duration-[1200ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.025] group-hover:brightness-[1.05] group-hover:contrast-[1.04]"
+        <div className="mt-[60px]">
+          <ImageBlock
+            src="/kayson-figma/hero-image.jpg"
+            alt="Kayson dans un paysage brumeux"
+            className="gsap-hero-image h-[420px] md:h-[620px]"
           />
-        </ArtworkHover>
+        </div>
       </section>
-      <section id="contact-us" className="site-container py-[120px] text-center">
-        <Reveal>
-          <h2 className="font-serif text-[46px] leading-[1] text-[#111] md:text-[58px]">
-            Connect with us
-          </h2>
-          <p className="mx-auto mt-10 max-w-[600px] text-[15px] leading-[1.55] text-[#777]">
-            Schedule a quick call to learn how Area can turn your regional data into a
-            powerful advantage.
-          </p>
-          <ArrowButton className="mt-10 w-full max-w-[600px]">Learn More</ArrowButton>
-        </Reveal>
-      </section>
+      <AboutSection />
+      <UniverseSection />
+      <QuoteSection />
+      <DiscographySection />
+      <ContactSection />
       <Footer />
     </main>
   );

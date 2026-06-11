@@ -1,14 +1,20 @@
 "use client";
 
 import { useEffect, useState } from "react";
+import Image from "next/image";
 import { motion, useReducedMotion } from "motion/react";
-import { ArrowButton } from "@/components/arrow-button";
-import { BrandLogo } from "@/components/brand-logo";
 import { HeaderReveal } from "@/components/motion-primitives";
 import { navItems } from "@/data/site";
 
 function itemHref(item: string) {
-  return `#${item.toLowerCase().replaceAll(" ", "-")}`;
+  const ids: Record<string, string> = {
+    "L'artiste": "artiste",
+    Univer: "univer",
+    Discographie: "discographie",
+    Contact: "contact",
+  };
+
+  return `#${ids[item] ?? item.toLowerCase()}`;
 }
 
 export function SiteNavigation() {
@@ -27,10 +33,16 @@ export function SiteNavigation() {
   }, []);
 
   return (
-    <HeaderReveal className="relative z-10 mx-auto flex h-[78px] w-full max-w-[1280px] items-center justify-between px-4 md:h-[148px] md:px-10">
-      <BrandLogo className="text-[15px] text-[#111]" />
-      <nav aria-label="Primary" className="hidden md:block">
-        <ul className="flex h-[60px] items-center gap-[27px] rounded-full px-6 text-[12px] font-semibold text-[#111]">
+    <HeaderReveal className="site-container relative z-30 flex h-[86px] items-start justify-between pt-5 md:h-[148px] md:pb-20">
+      <a className="text-[24px] font-medium leading-[1.2] tracking-[-1.2px] text-black md:text-[30px] md:tracking-[-1.5px]" href="#top">
+        Artiste
+      </a>
+
+      <nav
+        aria-label="Primary"
+        className="fixed left-1/2 top-4 hidden -translate-x-1/2 rounded-full bg-white/40 px-6 py-5 text-center text-[14px] font-bold tracking-[-0.35px] text-black backdrop-blur-[15px] md:block"
+      >
+        <ul className="flex items-center gap-[27px]">
           {navItems.map((item) => (
             <li key={item}>
               <a href={itemHref(item)}>{item}</a>
@@ -38,11 +50,25 @@ export function SiteNavigation() {
           ))}
         </ul>
       </nav>
-      <div className="hidden md:block">
-        <ArrowButton className="h-10 px-5" />
-      </div>
+      <a
+        className="hidden rounded-full bg-black px-[22px] py-[14px] text-center text-[14px] font-bold leading-[1.4] tracking-[-0.35px] text-white md:inline-flex md:items-center md:gap-2"
+        href="https://open.spotify.com/intl-fr/artist/592Fx192BSIFGTS9ldHXoI?si=sSMbXlYDQ92kZhmZAMjHHw"
+        target="_blank"
+        rel="noreferrer"
+      >
+        Écoutes kayson ici
+        <Image
+          aria-hidden="true"
+          className="h-[7px] w-[7px] invert"
+          src="/kayson-figma/arrow.svg"
+          width={7}
+          height={7}
+          alt=""
+        />
+      </a>
+
       <button
-        className="relative flex h-8 w-8 items-center justify-center rounded-sm border border-[#e8e8e3] text-[#111] md:hidden"
+        className="relative flex h-10 w-10 items-center justify-center rounded-full border border-[var(--divider)] text-black md:hidden"
         type="button"
         aria-label={isOpen ? "Close navigation" : "Open navigation"}
         aria-expanded={isOpen}
@@ -65,7 +91,7 @@ export function SiteNavigation() {
         <motion.nav
           id="mobile-navigation"
           aria-label="Mobile"
-          className="absolute left-4 right-4 top-[66px] rounded-[14px] border border-[#e8e8e1] bg-[#fffefa] p-3 shadow-[0_24px_60px_rgba(67,91,10,0.10)] md:hidden"
+          className="absolute left-4 right-4 top-[72px] rounded-[18px] border border-[var(--divider)] bg-white p-3 shadow-[0_24px_60px_rgba(0,0,0,0.08)] md:hidden"
           initial={reducedMotion ? false : { opacity: 0, y: -8 }}
           animate={{ opacity: 1, y: 0 }}
           exit={reducedMotion ? undefined : { opacity: 0, y: -8 }}
@@ -84,7 +110,22 @@ export function SiteNavigation() {
               </li>
             ))}
           </ul>
-          <ArrowButton className="mt-3 w-full" />
+          <a
+            className="mt-3 flex w-full items-center justify-center gap-2 rounded-full bg-black px-[22px] py-[14px] text-[14px] font-bold text-white"
+            href="https://open.spotify.com/intl-fr/artist/592Fx192BSIFGTS9ldHXoI?si=sSMbXlYDQ92kZhmZAMjHHw"
+            target="_blank"
+            rel="noreferrer"
+          >
+            Écoutes kayson ici
+            <Image
+              aria-hidden="true"
+              className="h-[7px] w-[7px] invert"
+              src="/kayson-figma/arrow.svg"
+              width={7}
+              height={7}
+              alt=""
+            />
+          </a>
         </motion.nav>
       ) : null}
     </HeaderReveal>
