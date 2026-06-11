@@ -2,7 +2,7 @@
 
 Portfolio d'artiste contemporain construit avec Next.js App Router, TypeScript, Tailwind CSS et Motion.
 
-Le site est prepare pour une V1 publique sur Vercel, avec une experience sobre, responsive et optimisee pour un sous-domaine gratuit du type `https://kayson.vercel.app`.
+Le site est préparé pour une V1 publique sur Vercel, avec une expérience sobre, responsive et optimisée pour un sous-domaine gratuit du type `https://kayson.vercel.app`.
 
 ## Stack
 
@@ -18,13 +18,13 @@ Le site est prepare pour une V1 publique sur Vercel, avec une experience sobre, 
 npm install
 ```
 
-## Developpement
+## Développement
 
 ```bash
 npm run dev
 ```
 
-Par defaut, Next.js utilise `http://localhost:3000`. Si le port est deja occupe :
+Par défaut, Next.js utilise `http://localhost:3000`. Si le port est déjà occupé :
 
 ```bash
 npm run dev -- -p 3001
@@ -42,15 +42,15 @@ npm run build
 npm run lint
 ```
 
-## Deploiement Vercel
+## Déploiement Vercel
 
-Option recommandee :
+Option recommandée :
 
 1. Pousser le projet sur GitHub dans un repo nomme `kayson`.
 2. Aller sur [Vercel](https://vercel.com/new).
 3. Importer le repo GitHub.
-4. Garder les reglages Next.js detectes automatiquement.
-5. Deployer avec le sous-domaine gratuit propose par Vercel.
+4. Garder les réglages Next.js détectés automatiquement.
+5. Déployer avec le sous-domaine gratuit proposé par Vercel.
 
 Si le sous-domaine est disponible, utiliser :
 
@@ -62,6 +62,6 @@ https://kayson.vercel.app
 
 - `/` - Accueil
 - `/galerie` - Galerie
-- `/a-propos` - A propos
+- `/a-propos` - À propos
 - `/contact` - Contact
-- `/mentions-legales` - Mentions legales
+- `/mentions-legales` - Mentions légales

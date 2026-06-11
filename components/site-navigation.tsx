@@ -56,7 +56,7 @@ export function SiteNavigation() {
         target="_blank"
         rel="noreferrer"
       >
-        Écoute kayson ici
+        Écoute Kayson ici
         <Image
           aria-hidden="true"
           className="h-[7px] w-[7px] invert"
@@ -116,7 +116,7 @@ export function SiteNavigation() {
             target="_blank"
             rel="noreferrer"
           >
-            Écoute kayson ici
+            Écoute Kayson ici
             <Image
               aria-hidden="true"
               className="h-[7px] w-[7px] invert"

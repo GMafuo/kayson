@@ -26,11 +26,11 @@ export const metadata: Metadata = {
     template: "%s | Kayson",
   },
   description:
-    "Site officiel de Kayson, artiste independant entre pop moderne et influences R&B.",
+    "Site officiel de Kayson, artiste indépendant entre pop moderne et influences R&B.",
   openGraph: {
     title: "Kayson",
     description:
-      "Decouvrez l'univers de Kayson, sa discographie et ses liens officiels.",
+      "Découvrez l'univers de Kayson, sa discographie et ses liens officiels.",
     url: "https://ckayson.vercel.app",
     siteName: "Kayson",
     images: [

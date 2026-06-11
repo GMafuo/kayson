@@ -37,7 +37,7 @@ const universeItems = [
 const releases = [
   {
     image: "/kayson-figma/cover-01.jpg",
-    title: "Bébé n'est plus la",
+    title: "Bébé n'est plus là",
     meta: "Single • 2026",
     href: "https://open.spotify.com/album/4JOSOSHeTQp7ATJexOQjqN",
   },
@@ -160,7 +160,7 @@ function AboutSection() {
             <p>
               Entre pop moderne et influences R&B, sa musique raconte les relations, les
               sentiments et les moments qui marquent une vie. Des mélodies sincères, des
-              productions actuelles et une identité artistique entièrement façonnées par
+              productions actuelles et une identité artistique entièrement façonnée par
               l&apos;artiste lui-même.
             </p>
             <p>
@@ -189,7 +189,7 @@ function UniverseSection() {
     <section id="univers" className="site-container pb-[80px] md:pb-[120px]">
       <Reveal className="border-t border-[var(--divider)] pb-[40px] pt-[17px] md:pb-[86px]">
         <p className="font-mono text-[12px] leading-[1.4] tracking-[-0.12px] text-[var(--caption)]">
-          Benefits
+          Univers
         </p>
         <h2 className="mt-[50px] font-serif text-[46px] leading-[0.9] tracking-[-1.38px] text-black md:text-[60px] md:tracking-[-1.8px]">
           SON UNIVERS
