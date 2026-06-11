@@ -38,6 +38,7 @@ yarn-error.log*
 
 # local agent and QA artifacts
 .agents/
+.figma-reference/
 .playwright-mcp/
 kayson-*.png
 skills-lock.json
