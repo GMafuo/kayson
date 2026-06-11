@@ -6,13 +6,13 @@ import { images } from "@/data/site";
 
 export const metadata: Metadata = {
   title: "Galerie",
-  description: "Selection d'oeuvres et de recherches visuelles du portfolio Kayson.",
+  description: "Sélection d'œuvres et de recherches visuelles du portfolio Kayson.",
 };
 
 const artworks = [
-  { title: "Etude territoriale", image: images.mountains },
+  { title: "Étude territoriale", image: images.mountains },
   { title: "Ligne de passage", image: images.heroLandscape },
-  { title: "Equilibre mineral", image: images.sculpture },
+  { title: "Équilibre minéral", image: images.sculpture },
 ];
 
 export default function GaleriePage() {
@@ -21,13 +21,13 @@ export default function GaleriePage() {
       <section className="site-container py-16 md:py-24">
         <Reveal>
           <Link className="text-[12px] font-semibold text-[#6d8b35]" href="/">
-            Retour a l&apos;accueil
+            Retour à l&apos;accueil
           </Link>
           <h1 className="mt-16 max-w-[900px] font-serif text-[58px] leading-[0.98] md:text-[96px]">
             Galerie
           </h1>
           <p className="mt-10 max-w-[620px] text-[15px] leading-[1.6] text-[#777]">
-            Une selection courte pour presenter l&apos;univers visuel de Kayson dans une
+            Une sélection courte pour présenter l&apos;univers visuel de Kayson dans une
             lecture calme, proche d&apos;une galerie contemporaine.
           </p>
         </Reveal>

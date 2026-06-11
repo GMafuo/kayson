@@ -9,7 +9,7 @@ import { navItems } from "@/data/site";
 function itemHref(item: string) {
   const ids: Record<string, string> = {
     "L'artiste": "artiste",
-    Univer: "univer",
+    Univers: "univers",
     Discographie: "discographie",
     Contact: "contact",
   };
@@ -35,11 +35,11 @@ export function SiteNavigation() {
   return (
     <HeaderReveal className="site-container relative z-30 flex h-[86px] items-start justify-between pt-5 md:h-[148px] md:pb-20">
       <a className="text-[24px] font-medium leading-[1.2] tracking-[-1.2px] text-black md:text-[30px] md:tracking-[-1.5px]" href="#top">
-        Artiste
+        Kayson
       </a>
 
       <nav
-        aria-label="Primary"
+        aria-label="Navigation principale"
         className="fixed left-1/2 top-4 hidden -translate-x-1/2 rounded-full bg-white/40 px-6 py-5 text-center text-[14px] font-bold tracking-[-0.35px] text-black backdrop-blur-[15px] md:block"
       >
         <ul className="flex items-center gap-[27px]">
@@ -56,7 +56,7 @@ export function SiteNavigation() {
         target="_blank"
         rel="noreferrer"
       >
-        Écoutes kayson ici
+        Écoute Kayson ici
         <Image
           aria-hidden="true"
           className="h-[7px] w-[7px] invert"
@@ -70,7 +70,7 @@ export function SiteNavigation() {
       <button
         className="relative flex h-10 w-10 items-center justify-center rounded-full border border-[var(--divider)] text-black md:hidden"
         type="button"
-        aria-label={isOpen ? "Close navigation" : "Open navigation"}
+        aria-label={isOpen ? "Fermer la navigation" : "Ouvrir la navigation"}
         aria-expanded={isOpen}
         aria-controls="mobile-navigation"
         onClick={() => setIsOpen((open) => !open)}
@@ -90,7 +90,7 @@ export function SiteNavigation() {
       {isOpen ? (
         <motion.nav
           id="mobile-navigation"
-          aria-label="Mobile"
+          aria-label="Navigation mobile"
           className="absolute left-4 right-4 top-[72px] rounded-[18px] border border-[var(--divider)] bg-white p-3 shadow-[0_24px_60px_rgba(0,0,0,0.08)] md:hidden"
           initial={reducedMotion ? false : { opacity: 0, y: -8 }}
           animate={{ opacity: 1, y: 0 }}
@@ -116,7 +116,7 @@ export function SiteNavigation() {
             target="_blank"
             rel="noreferrer"
           >
-            Écoutes kayson ici
+            Écoute Kayson ici
             <Image
               aria-hidden="true"
               className="h-[7px] w-[7px] invert"

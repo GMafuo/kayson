@@ -3,8 +3,8 @@ import Link from "next/link";
 import { Reveal } from "@/components/motion-primitives";
 
 export const metadata: Metadata = {
-  title: "Mentions legales",
-  description: "Mentions legales du site Kayson.",
+  title: "Mentions légales",
+  description: "Mentions légales du site Kayson.",
 };
 
 export default function MentionsLegalesPage() {
@@ -13,24 +13,24 @@ export default function MentionsLegalesPage() {
       <section className="site-container py-16 md:py-24">
         <Reveal>
           <Link className="text-[12px] font-semibold text-[#6d8b35]" href="/">
-            Retour a l&apos;accueil
+            Retour à l&apos;accueil
           </Link>
           <h1 className="mt-16 font-serif text-[50px] leading-[0.98] md:text-[82px]">
-            Mentions legales
+            Mentions légales
           </h1>
           <div className="mt-14 max-w-[760px] space-y-8 text-[15px] leading-[1.7] text-[#666]">
             <p>
-              Site edite pour le portfolio Kayson. Les informations definitives
-              d&apos;editeur, d&apos;hebergeur et de contact legal pourront etre completees
+              Site édité pour le portfolio Kayson. Les informations définitives
+              d&apos;éditeur, d&apos;hébergeur et de contact légal pourront être complétées
               avant publication officielle.
             </p>
             <p>
-              Hebergement prevu: Vercel Inc., plateforme d&apos;hebergement web pour
+              Hébergement prévu : Vercel Inc., plateforme d&apos;hébergement web pour
               applications Next.js.
             </p>
             <p>
-              Les contenus, images et textes presentes sur ce site sont proteges
-              et ne peuvent pas etre reutilises sans autorisation.
+              Les contenus, images et textes présentés sur ce site sont protégés
+              et ne peuvent pas être réutilisés sans autorisation.
             </p>
           </div>
         </Reveal>

@@ -14,17 +14,17 @@ export default function ContactPage() {
       <section className="site-container py-16 text-center md:py-32">
         <Reveal>
           <Link className="text-[12px] font-semibold text-[#6d8b35]" href="/">
-            Retour a l&apos;accueil
+            Retour à l&apos;accueil
           </Link>
           <h1 className="mx-auto mt-16 max-w-[900px] font-serif text-[58px] leading-[0.98] md:text-[96px]">
             Contact
           </h1>
           <p className="mx-auto mt-10 max-w-[600px] text-[15px] leading-[1.7] text-[#777]">
             Pour une exposition, une collaboration ou une demande professionnelle,
-            contactez Kayson afin d&apos;ouvrir un premier echange.
+            contactez Kayson afin d&apos;ouvrir un premier échange.
           </p>
           <ArrowButton className="mt-10 w-full max-w-[360px]" href="mailto:contact@kayson.art">
-            Ecrire a Kayson
+            Écrire à Kayson
           </ArrowButton>
         </Reveal>
       </section>

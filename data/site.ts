@@ -1,4 +1,4 @@
-export const navItems = ["L'artiste", "Univer", "Discographie", "Contact"];
+export const navItems = ["L'artiste", "Univers", "Discographie", "Contact"];
 
 export const images = {
   heroLandscape: "/images/hero-landscape.jpg",
