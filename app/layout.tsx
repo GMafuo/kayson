@@ -1,34 +1,41 @@
 import type { Metadata } from "next";
-import { Geist, Geist_Mono } from "next/font/google";
+import { Crimson_Text, DM_Sans, Roboto_Mono } from "next/font/google";
 import "./globals.css";
 
-const geistSans = Geist({
-  variable: "--font-geist-sans",
+const dmSans = DM_Sans({
+  variable: "--font-dm-sans",
   subsets: ["latin"],
 });
 
-const geistMono = Geist_Mono({
-  variable: "--font-geist-mono",
+const crimson = Crimson_Text({
+  variable: "--font-crimson",
   subsets: ["latin"],
+  weight: ["400"],
+});
+
+const robotoMono = Roboto_Mono({
+  variable: "--font-roboto-mono",
+  subsets: ["latin"],
+  weight: ["400"],
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://kayson.vercel.app"),
+  metadataBase: new URL("https://ckayson.vercel.app"),
   title: {
-    default: "Kayson - Portfolio d'artiste contemporain",
+    default: "Kayson - Artiste indépendant",
     template: "%s | Kayson",
   },
   description:
-    "Portfolio contemporain de Kayson, une experience visuelle sobre et premium pensee pour presenter une demarche artistique, des oeuvres et des prises de contact.",
+    "Site officiel de Kayson, artiste independant entre pop moderne et influences R&B.",
   openGraph: {
-    title: "Kayson - Portfolio d'artiste contemporain",
+    title: "Kayson - Artiste indépendant",
     description:
-      "Decouvrez l'univers de Kayson a travers une selection d'oeuvres, une demarche artistique et un portfolio pense comme une galerie contemporaine.",
-    url: "https://kayson.vercel.app",
+      "Decouvrez l'univers de Kayson, sa discographie et ses liens officiels.",
+    url: "https://ckayson.vercel.app",
     siteName: "Kayson",
     images: [
       {
-        url: "/images/hero-landscape.jpg",
+        url: "/kayson-figma/hero-image.jpg",
         width: 1200,
         height: 630,
         alt: "Kayson portfolio",
@@ -49,8 +56,8 @@ export default function RootLayout({
 }>) {
   return (
     <html
-      lang="en"
-      className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
+      lang="fr"
+      className={`${dmSans.variable} ${crimson.variable} ${robotoMono.variable} h-full antialiased`}
     >
       <body className="min-h-full">{children}</body>
     </html>

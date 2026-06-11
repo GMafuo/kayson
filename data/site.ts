@@ -1,4 +1,4 @@
-export const navItems = ["Benefits", "Specifications", "How-to", "Contact Us"];
+export const navItems = ["L'artiste", "Univer", "Discographie", "Contact"];
 
 export const trustedLogos = [
   "Echo",

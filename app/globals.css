@@ -1,16 +1,20 @@
 @import "tailwindcss";
 
 :root {
-  --background: #fffefa;
-  --foreground: #111111;
+  --background: #ffffff;
+  --foreground: #000000;
+  --divider: #e9e9e9;
+  --caption: #485c11;
+  --muted: #6f6f6f;
+  --accent-soft: #dfecc6;
 }
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
-  --font-serif: Georgia, "Times New Roman", serif;
+  --font-sans: var(--font-dm-sans);
+  --font-mono: var(--font-roboto-mono);
+  --font-serif: var(--font-crimson);
 }
 
 * {
@@ -25,7 +29,7 @@ body {
   margin: 0;
   background: var(--background);
   color: var(--foreground);
-  font-family: var(--font-geist-sans), Arial, Helvetica, sans-serif;
+  font-family: var(--font-dm-sans), Arial, Helvetica, sans-serif;
 }
 
 a {
@@ -33,8 +37,8 @@ a {
 }
 
 ::selection {
-  background: #e7f3c9;
-  color: #111;
+  background: #dfecc6;
+  color: #000;
 }
 
 .site-container {
@@ -47,4 +51,11 @@ a {
   .site-container {
     padding-inline: 40px;
   }
+}
+
+.kayson-image {
+  display: block;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
 }
