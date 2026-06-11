@@ -6,7 +6,7 @@ type ArrowButtonProps = {
 };
 
 export function ArrowButton({
-  children = "Learn More",
+  children = "En savoir plus",
   href = "#contact-us",
   variant = "dark",
   className = "",

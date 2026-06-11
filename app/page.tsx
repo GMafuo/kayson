@@ -333,7 +333,7 @@ function Footer() {
     <footer className="site-container border-t border-[var(--divider)] pb-5 pt-10">
       <div className="flex items-end justify-between gap-8 font-mono text-[12px] leading-[1.4] tracking-[-0.12px] text-[var(--caption)]">
         <p>© Kayson.</p>
-        <p>All Rights Reserved</p>
+        <p>Tous droits réservés</p>
       </div>
     </footer>
   );

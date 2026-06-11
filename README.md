@@ -46,7 +46,7 @@ npm run lint
 
 Option recommandée :
 
-1. Pousser le projet sur GitHub dans un repo nomme `kayson`.
+1. Pousser le projet sur GitHub dans un repo nommé `kayson`.
 2. Aller sur [Vercel](https://vercel.com/new).
 3. Importer le repo GitHub.
 4. Garder les réglages Next.js détectés automatiquement.

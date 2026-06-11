@@ -6,7 +6,7 @@ import { images } from "@/data/site";
 
 export const metadata: Metadata = {
   title: "Galerie",
-  description: "Sélection d'oeuvres et de recherches visuelles du portfolio Kayson.",
+  description: "Sélection d'œuvres et de recherches visuelles du portfolio Kayson.",
 };
 
 const artworks = [
