@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Reveal } from "@/components/motion-primitives";
-import { ImagePanel } from "@/components/image-panel";
-import { images } from "@/data/site";
+import { Reveal } from "@/components/animations/MotionPrimitives";
+import { ImagePanel } from "@/components/ui/ImagePanel";
+import { images } from "@/data/site-content";
 
 export const metadata: Metadata = {
   title: "À propos",

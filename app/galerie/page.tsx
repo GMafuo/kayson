@@ -1,8 +1,8 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArtworkHover, Reveal, StaggerContainer, StaggerItem } from "@/components/motion-primitives";
-import { ImagePanel } from "@/components/image-panel";
-import { images } from "@/data/site";
+import { ArtworkHover, Reveal, StaggerContainer, StaggerItem } from "@/components/animations/MotionPrimitives";
+import { ImagePanel } from "@/components/ui/ImagePanel";
+import { images } from "@/data/site-content";
 
 export const metadata: Metadata = {
   title: "Galerie",

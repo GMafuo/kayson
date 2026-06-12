@@ -40,6 +40,10 @@ yarn-error.log*
 .agents/
 .figma-reference/
 .playwright-mcp/
+tools/playwright-mcp/*
+!tools/playwright-mcp/README.md
+docs/figma/reference/
+docs/screenshots/**/*.png
 kayson-*.png
 skills-lock.json
 

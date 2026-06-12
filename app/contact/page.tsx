@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { ArrowButton } from "@/components/arrow-button";
-import { Reveal } from "@/components/motion-primitives";
+import { ArrowButton } from "@/components/ui/Button";
+import { Reveal } from "@/components/animations/MotionPrimitives";
 
 export const metadata: Metadata = {
   title: "Contact",

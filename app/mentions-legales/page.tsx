@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Reveal } from "@/components/motion-primitives";
+import { Reveal } from "@/components/animations/MotionPrimitives";
 
 export const metadata: Metadata = {
   title: "Mentions légales",

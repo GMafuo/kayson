@@ -3,8 +3,8 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import { motion, useReducedMotion } from "motion/react";
-import { HeaderReveal } from "@/components/motion-primitives";
-import { navItems } from "@/data/site";
+import { HeaderReveal } from "@/components/animations/MotionPrimitives";
+import { navItems } from "@/data/navigation";
 
 function itemHref(item: string) {
   const ids: Record<string, string> = {
