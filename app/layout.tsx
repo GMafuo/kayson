@@ -37,7 +37,7 @@ export const metadata: Metadata = {
       {
         url: "/kayson-figma/hero-image.jpg",
         width: 1200,
-        height: 630,
+        height: 820,
         alt: "Kayson portfolio",
       },
     ],

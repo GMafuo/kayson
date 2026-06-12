@@ -53,13 +53,6 @@ a {
   }
 }
 
-.kayson-image {
-  display: block;
-  height: 100%;
-  width: 100%;
-  object-fit: cover;
-}
-
 .gsap-reveal,
 .gsap-stagger-item,
 .gsap-header,

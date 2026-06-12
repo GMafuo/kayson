@@ -106,7 +106,7 @@ function ListenButton({
 }) {
   return (
     <a
-      className={`inline-flex items-center justify-center rounded-full px-[22px] py-[14px] text-center text-[14px] font-bold leading-[1.4] tracking-[-0.35px] ${
+      className={`inline-flex items-center justify-center rounded-full px-[22px] py-[14px] text-center text-[14px] font-bold leading-[1.4] tracking-[-0.35px] focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-4 focus-visible:outline-black ${
         variant === "dark" ? "bg-black text-white" : "bg-[var(--accent-soft)] text-black"
       }`}
       href={listeningUrl}
@@ -302,7 +302,7 @@ function ContactSection() {
   return (
     <section
       id="contact"
-      className="site-container border-t border-[var(--divider)] px-4 py-[100px] text-center md:px-[300px] md:py-[120px]"
+      className="site-container border-t border-[var(--divider)] px-4 py-[100px] text-center md:px-20 md:py-[120px] lg:px-[300px]"
     >
       <Reveal>
         <h2 className="font-serif text-[46px] leading-[0.9] tracking-[-1.38px] text-black md:text-[60px] md:tracking-[-1.8px]">

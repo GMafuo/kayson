@@ -32,7 +32,7 @@ export function GsapSiteAnimations() {
 
       if (reducedMotion) {
         gsap.set(root.querySelectorAll(".gsap-reveal, .gsap-stagger-item"), {
-          autoAlpha: 1,
+          opacity: 1,
           clearProps: "transform",
         });
         gsap.set(root.querySelectorAll(".gsap-image-reveal"), {
@@ -46,15 +46,15 @@ export function GsapSiteAnimations() {
       mm.add("(min-width: 768px)", () => {
         gsap.fromTo(
           ".gsap-header",
-          { autoAlpha: 0, y: -18 },
-          { autoAlpha: 1, y: 0, duration: 1.05, ease },
+          { opacity: 0, y: -18 },
+          { opacity: 1, y: 0, duration: 1.05, ease },
         );
 
         gsap.fromTo(
           ".gsap-hero-title",
-          { autoAlpha: 0, y: 34, filter: "blur(6px)" },
+          { opacity: 0, y: 34, filter: "blur(6px)" },
           {
-            autoAlpha: 1,
+            opacity: 1,
             y: 0,
             filter: "blur(0px)",
             duration: 1.25,
@@ -66,13 +66,13 @@ export function GsapSiteAnimations() {
         gsap.fromTo(
           ".gsap-hero-image",
           {
-            autoAlpha: 0,
+            opacity: 0,
             y: 42,
             scale: 0.985,
             clipPath: "inset(8% 0% 8% 0% round 30px)",
           },
           {
-            autoAlpha: 1,
+            opacity: 1,
             y: 0,
             scale: 1,
             clipPath: "inset(0% 0% 0% 0% round 30px)",
@@ -90,13 +90,13 @@ export function GsapSiteAnimations() {
           gsap.fromTo(
             image,
             {
-              autoAlpha: 0,
+              opacity: 0,
               y: 12,
               scale: 0.99,
               clipPath: "inset(9% 0% 9% 0% round 30px)",
             },
             {
-              autoAlpha: 1,
+              opacity: 1,
               y: 0,
               scale: 1,
               clipPath: "inset(0% 0% 0% 0% round 30px)",
@@ -135,25 +135,25 @@ export function GsapSiteAnimations() {
       mm.add("(max-width: 767px)", () => {
         gsap.fromTo(
           ".gsap-header",
-          { autoAlpha: 0, y: -10 },
-          { autoAlpha: 1, y: 0, duration: 0.75, ease },
+          { opacity: 0, y: -10 },
+          { opacity: 1, y: 0, duration: 0.75, ease },
         );
 
         gsap.fromTo(
           ".gsap-hero-title",
-          { autoAlpha: 0, y: 24 },
-          { autoAlpha: 1, y: 0, duration: 0.9, ease, delay: 0.08 },
+          { opacity: 0, y: 24 },
+          { opacity: 1, y: 0, duration: 0.9, ease, delay: 0.08 },
         );
 
         gsap.fromTo(
           ".gsap-hero-image",
           {
-            autoAlpha: 0,
+            opacity: 0,
             y: 26,
             clipPath: "inset(7% 0% 7% 0% round 30px)",
           },
           {
-            autoAlpha: 1,
+            opacity: 1,
             y: 0,
             clipPath: "inset(0% 0% 0% 0% round 30px)",
             duration: 0.95,
@@ -182,9 +182,9 @@ export function GsapSiteAnimations() {
 
         gsap.fromTo(
           element,
-          { autoAlpha: 0, y },
+          { opacity: 0, y },
           {
-            autoAlpha: 1,
+            opacity: 1,
             y: 0,
             duration: 0.95,
             ease,
@@ -209,9 +209,9 @@ export function GsapSiteAnimations() {
 
         gsap.fromTo(
           items,
-          { autoAlpha: 0, y: 30 },
+          { opacity: 0, y: 30 },
           {
-            autoAlpha: 1,
+            opacity: 1,
             y: 0,
             duration: 0.9,
             ease,

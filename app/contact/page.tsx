@@ -13,7 +13,7 @@ export default function ContactPage() {
     <main className="min-h-screen bg-[#fffefa] text-[#111]">
       <section className="site-container py-16 text-center md:py-32">
         <Reveal>
-          <Link className="text-[12px] font-semibold text-[#6d8b35]" href="/">
+          <Link className="text-[12px] font-semibold text-[var(--caption)]" href="/">
             Retour à l&apos;accueil
           </Link>
           <h1 className="mx-auto mt-16 max-w-[900px] font-serif text-[58px] leading-[0.98] md:text-[96px]">

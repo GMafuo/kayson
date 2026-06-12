@@ -1,11 +1,13 @@
 type ImagePanelProps = {
   src: string;
+  alt: string;
   className?: string;
   rounded?: string;
 };
 
 export function ImagePanel({
   src,
+  alt,
   className = "",
   rounded = "rounded-[18px]",
 }: ImagePanelProps) {
@@ -14,7 +16,7 @@ export function ImagePanel({
       className={`${rounded} bg-cover bg-center ${className}`}
       style={{ backgroundImage: `url(${src})` }}
       role="img"
-      aria-label=""
+      aria-label={alt}
     />
   );
 }

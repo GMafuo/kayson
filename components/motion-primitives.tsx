@@ -10,7 +10,6 @@ type MotionPrimitiveProps = {
 type RevealProps = MotionPrimitiveProps & {
   delay?: number;
   y?: number;
-  amount?: number;
 };
 
 export function Reveal({
@@ -18,14 +17,12 @@ export function Reveal({
   className = "",
   delay = 0,
   y = 32,
-  amount = 0.2,
 }: RevealProps) {
   return (
     <div
       className={`gsap-reveal ${className}`}
       data-gsap-delay={delay}
       data-gsap-y={y}
-      data-gsap-amount={amount}
     >
       {children}
     </div>
@@ -40,7 +37,6 @@ export function HeaderReveal({ children, className = "" }: HeaderRevealProps) {
 
 type StaggerContainerProps = MotionPrimitiveProps & {
   as?: "div" | "ol" | "ul";
-  amount?: number;
   delayChildren?: number;
   staggerChildren?: number;
 };
@@ -49,7 +45,6 @@ export function StaggerContainer({
   as = "div",
   children,
   className = "",
-  amount = 0.18,
   delayChildren = 0.06,
   staggerChildren = 0.1,
 }: StaggerContainerProps) {
@@ -58,7 +53,6 @@ export function StaggerContainer({
   return (
     <Tag
       className={`gsap-stagger ${className}`}
-      data-gsap-amount={amount}
       data-gsap-delay-children={delayChildren}
       data-gsap-stagger={staggerChildren}
     >

@@ -14,7 +14,7 @@ export default function AProposPage() {
     <main className="min-h-screen bg-[#fffefa] text-[#111]">
       <section className="site-container grid gap-10 py-16 md:grid-cols-2 md:py-24">
         <Reveal>
-          <Link className="text-[12px] font-semibold text-[#6d8b35]" href="/">
+          <Link className="text-[12px] font-semibold text-[var(--caption)]" href="/">
             Retour à l&apos;accueil
           </Link>
           <h1 className="mt-16 font-serif text-[58px] leading-[0.98] md:text-[96px]">
@@ -27,7 +27,11 @@ export default function AProposPage() {
           </p>
         </Reveal>
         <Reveal delay={0.08}>
-          <ImagePanel src={images.sculpture} className="h-[520px]" />
+          <ImagePanel
+            src={images.sculpture}
+            alt="Sculpture minérale dans un paysage naturel"
+            className="h-[520px]"
+          />
         </Reveal>
       </section>
     </main>

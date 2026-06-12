@@ -20,7 +20,7 @@ export default function GaleriePage() {
     <main className="min-h-screen bg-[#fffefa] text-[#111]">
       <section className="site-container py-16 md:py-24">
         <Reveal>
-          <Link className="text-[12px] font-semibold text-[#6d8b35]" href="/">
+          <Link className="text-[12px] font-semibold text-[var(--caption)]" href="/">
             Retour à l&apos;accueil
           </Link>
           <h1 className="mt-16 max-w-[900px] font-serif text-[58px] leading-[0.98] md:text-[96px]">
@@ -37,6 +37,7 @@ export default function GaleriePage() {
               <ArtworkHover className="group overflow-hidden rounded-[18px]">
                 <ImagePanel
                   src={artwork.image}
+                  alt={artwork.title}
                   className="h-[420px] transition-[filter,transform] duration-[1200ms] ease-[cubic-bezier(0.22,1,0.36,1)] group-hover:scale-[1.025] group-hover:brightness-[1.05] group-hover:contrast-[1.04]"
                 />
               </ArtworkHover>
