@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import { Reveal } from "@/components/motion-primitives";
+import { Reveal } from "@/components/animations/MotionPrimitives";
 
 export const metadata: Metadata = {
   title: "Mentions légales",
@@ -12,7 +12,7 @@ export default function MentionsLegalesPage() {
     <main className="min-h-screen bg-[#fffefa] text-[#111]">
       <section className="site-container py-16 md:py-24">
         <Reveal>
-          <Link className="text-[12px] font-semibold text-[#6d8b35]" href="/">
+          <Link className="text-[12px] font-semibold text-[var(--caption)]" href="/">
             Retour à l&apos;accueil
           </Link>
           <h1 className="mt-16 font-serif text-[50px] leading-[0.98] md:text-[82px]">
