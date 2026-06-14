@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Crimson_Text, DM_Sans, Roboto_Mono } from "next/font/google";
+import { artistLinks, siteUrl } from "@/lib/seo";
 import "./globals.css";
 
 const dmSans = DM_Sans({
@@ -20,18 +21,21 @@ const robotoMono = Roboto_Mono({
 });
 
 export const metadata: Metadata = {
-  metadataBase: new URL("https://ckayson.vercel.app"),
+  metadataBase: new URL(siteUrl),
   title: {
-    default: "Kayson",
+    default: "Kayson | Artiste pop & R&B - Site officiel",
     template: "%s | Kayson",
   },
   description:
-    "Site officiel de Kayson, artiste indépendant entre pop moderne et influences R&B.",
+    "Site officiel de Kayson, artiste indépendant originaire de Chartres, entre pop moderne, émotions sincères et influences R&B contemporaines.",
+  alternates: {
+    canonical: "/",
+  },
   openGraph: {
-    title: "Kayson",
+    title: "Kayson | Artiste pop & R&B - Site officiel",
     description:
       "Découvrez l'univers de Kayson, sa discographie et ses liens officiels.",
-    url: "https://ckayson.vercel.app",
+    url: siteUrl,
     siteName: "Kayson",
     images: [
       {
@@ -46,6 +50,23 @@ export const metadata: Metadata = {
   },
 };
 
+const musicGroupJsonLd = {
+  "@context": "https://schema.org",
+  "@type": "MusicGroup",
+  name: "Kayson",
+  url: siteUrl,
+  image: `${siteUrl}/kayson-figma/hero-image.jpg`,
+  description:
+    "Kayson est un artiste indépendant originaire de Chartres, entre pop moderne et influences R&B contemporaines.",
+  genre: ["Pop", "R&B"],
+  sameAs: [
+    artistLinks.spotify,
+    artistLinks.instagram,
+    artistLinks.tiktok,
+    artistLinks.youtube,
+  ],
+};
+
 export default function RootLayout({
   children,
 }: Readonly<{
@@ -56,7 +77,16 @@ export default function RootLayout({
       lang="fr"
       className={`${dmSans.variable} ${crimson.variable} ${robotoMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full">{children}</body>
+      <body className="min-h-full">
+        <script
+          type="application/ld+json"
+          suppressHydrationWarning
+          dangerouslySetInnerHTML={{
+            __html: JSON.stringify(musicGroupJsonLd),
+          }}
+        />
+        {children}
+      </body>
     </html>
   );
 }
